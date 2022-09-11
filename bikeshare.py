@@ -9,7 +9,7 @@ months = ['january', 'february', 'march', 'april', 'may', 'june']
 week_days = ['monday', 'tuesday', 'wednesday', 'thursdays', 'friday', 'saturday', 'sunday']
 def get_filters():
     """
-    Asks user to specify a city, month, and day to analyze.
+    Asks user to specify a city, month, and day to analyze..
 
     Returns:
         (str) city - name of the city to analyze
