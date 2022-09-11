@@ -9,7 +9,7 @@ months = ['january', 'february', 'march', 'april', 'may', 'june']
 week_days = ['monday', 'tuesday', 'wednesday', 'thursdays', 'friday', 'saturday', 'sunday']
 def get_filters():
     """
-    Asks user to specify a city, month, and day to analyze.
+    Asks user to specify a city, month, and day to analyze..
 
     Returns:
         (str) city - name of the city to analyze
@@ -17,13 +17,13 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-   
+
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     city = input_user_validator("Would you like to explore data for chicago, new york city or washington?\n", 'c')
     # TO DO: get user input for month (all, january, february, ... , june)
     month = input_user_validator("To view data by month kindly enter name of the month to filter from (january, february, march, april, may, june) otherwise enter 'all'\n", 'm')
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
-    day = input_user_validator("To view data by day kindly enter name of day to filter from (monday, tuesday, wednesday, thursday, friday, saturday, sunday) otherwise enter 'all'\n", 'd') 
+    day = input_user_validator("To view data by day kindly enter name of day to filter from (monday, tuesday, wednesday, thursday, friday, saturday, sunday) otherwise enter 'all'\n", 'd')
 
     print('-'*40)
     return city, month, day
@@ -47,7 +47,7 @@ def input_user_validator(user_input, input_type):
                 except ValueError:
                     print("You have entered an inappropriate input")
         return input_user_entered
-    
+
 def load_data(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
@@ -85,7 +85,7 @@ def time_stats(df):
 
     # TO DO: display the most common month
     most_popular_month = months[df['month'].mode()[0] -1].title()
-    
+
     # TO DO: display the most common day of week
     most_popular_day = df['day_of_week'].mode()[0]
 
@@ -113,7 +113,7 @@ def station_stats(df):
 
     # TO DO: display most frequent combination of start station and end station trip
     most_frequent_route = df.groupby(['Start Station', 'End Station']).count()
-    
+
     print('most commonly used start station is: ', most_popular_end_station)
     print('most commonly used end station is: ', most_popular_end_station)
     print('Most Commonly used combination of start station and end station trip:', most_frequent_route)
@@ -134,7 +134,7 @@ def trip_duration_stats(df):
     mean_travel_time = df['Trip Duration'].mean()
     print('total travel time is: ', total_travel_time)
     print('mean travel time is: ', mean_travel_time)
-         
+
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -169,7 +169,7 @@ def user_stats(df):
         print("most common year of birth is:", most_common_year_of_birth)
     except:
         print("no data available about birth year for Washington")
-        
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -177,7 +177,7 @@ def display_data(df):
     row_view = 5
     start_loc = 0
     end_loc = row_view - 1
-    
+
     while True:
         view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n')
         if view_data.lower()  == "yes":
@@ -191,8 +191,8 @@ def display_data(df):
             continue
         else:
             break
-            
-def main():              
+
+def main():
     while True:
         city, month, day = get_filters()
         df = load_data(city, month, day)
